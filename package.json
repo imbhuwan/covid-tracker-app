@@ -1,7 +1,7 @@
 {
   "name": "covid-tracker-app",
   "version": "0.1.0",
-  "private": true,
+  "public": true,
   "homepage": "https://imbhuwan.github.io/covid-tracker-app/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
