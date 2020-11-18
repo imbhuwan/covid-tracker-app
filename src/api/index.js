@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const url = 'https://covid19.mathdro.id/api';
+import * as Sentry from '@sentry/react';
+const url = 'abcd';
 
 export const fetchData = async (country) => {
 
@@ -10,6 +10,12 @@ export const fetchData = async (country) => {
         const modifiedData = {confirmed,recovered,deaths,lastUpdate}
         return modifiedData;
     } catch (error) {
+        Sentry.withScope(scope => {
+            scope.setTag("DATA-FETCH", "API CALL");
+            scope.setLevel("warning");
+            scope.setExtras(error);
+            Sentry.captureException(error);
+        })
         console.log(error);
     }
 } 
